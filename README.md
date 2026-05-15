@@ -22,7 +22,7 @@ transition-seconds: 8.0
 # Higher values update less often and can look choppier, so only change this if you know you need to.
 tick-period: 1
 
-# Vanilla sleeping clears rain and thunder after the night skip.
-# Since DaylightCycle replaces the instant skip with an animation, this keeps that vanilla weather behavior.
+# If true, rain and thunder will clear when the sleep animation finishes, matching vanilla sleep.
+# If false, DaylightCycle will not change the weather after the animation.
 clear-weather-on-finish: true
 ```
