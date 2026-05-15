@@ -17,12 +17,12 @@ DaylightCycle is a Folia-supported Minecraft plugin that smooths the normal nigh
 #   transition-seconds: 16.0  # slower
 transition-seconds: 8.0
 
-# Run the animation every N global-region ticks. Keep this at 1 for the smoothest sun/moon motion.
+# How often the sun/moon animation updates, measured in server ticks.
+# Keep this at 1 for the smoothest movement.
+# Higher values update less often and can look choppier, so only change this if you know you need to.
 tick-period: 1
 
-# Match vanilla sleep behavior by clearing rain/thunder once the animated skip finishes.
+# Vanilla sleeping clears rain and thunder after the night skip.
+# Since DaylightCycle replaces the instant skip with an animation, this keeps that vanilla weather behavior.
 clear-weather-on-finish: true
-
-# If true, only worlds with Environment.NORMAL are animated.
-normal-worlds-only: true
 ```

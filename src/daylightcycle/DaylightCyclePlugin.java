@@ -6,7 +6,6 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
-import org.bukkit.World.Environment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -26,7 +25,6 @@ public final class DaylightCyclePlugin extends JavaPlugin implements Listener {
     private long durationTicks;
     private long tickPeriod;
     private boolean clearWeatherOnFinish;
-    private boolean normalWorldsOnly;
 
     @Override
     public void onEnable() {
@@ -79,7 +77,7 @@ public final class DaylightCyclePlugin extends JavaPlugin implements Listener {
         }
 
         World world = event.getWorld();
-        if (!shouldAnimate(world) || event.getSkipAmount() <= 0L) {
+        if (event.getSkipAmount() <= 0L) {
             return;
         }
 
@@ -108,7 +106,6 @@ public final class DaylightCyclePlugin extends JavaPlugin implements Listener {
         durationTicks = resolveDurationTicks();
         tickPeriod = Math.max(1L, getConfig().getLong("tick-period", 1L));
         clearWeatherOnFinish = getConfig().getBoolean("clear-weather-on-finish", true);
-        normalWorldsOnly = getConfig().getBoolean("normal-worlds-only", true);
     }
 
     private long resolveDurationTicks() {
@@ -117,10 +114,6 @@ public final class DaylightCyclePlugin extends JavaPlugin implements Listener {
             return Math.max(1L, Math.round(seconds * 20.0D));
         }
         return Math.max(1L, getConfig().getLong("duration-ticks", 160L));
-    }
-
-    private boolean shouldAnimate(World world) {
-        return !normalWorldsOnly || world.getEnvironment() == Environment.NORMAL;
     }
 
     private long normalizeSkipAmount(long skipAmount) {
