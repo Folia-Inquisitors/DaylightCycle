@@ -1,0 +1,6 @@
+name: DaylightCycle
+version: 1.0.0
+main: daylightcycle.DaylightCyclePlugin
+api-version: '1.21'
+folia-supported: true
+description: Smoothly cycles night into day when vanilla sleep skipping succeeds.

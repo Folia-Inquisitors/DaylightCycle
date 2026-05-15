@@ -1,0 +1,6 @@
+build/
+*.class
+*.bak
+*.log
+.idea/
+.vscode/
