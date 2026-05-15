@@ -18,8 +18,8 @@ DaylightCycle is a Folia-supported Minecraft plugin that smooths the normal nigh
 transition-seconds: 8.0
 
 # How often the sun/moon animation updates, measured in server ticks.
-# Keep this at 1 for the smoothest movement.
-# Higher values update less often and can look choppier, so only change this if you know you need to.
+# This does not control how fast the sky moves; transition-seconds controls the speed.
+# Keep this at 1 for the smoothest movement. Higher values update less often and can look choppier.
 tick-period: 1
 
 # If true, rain and thunder will clear when the sleep animation finishes, matching vanilla sleep.
